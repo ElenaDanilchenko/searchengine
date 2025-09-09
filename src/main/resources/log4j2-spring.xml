@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+
+        <File name="InvalidUrls" fileName="logs/invalid_urls.log" append="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </File>
+
+        <File name="IndexingMessages" fileName="logs/indexing_messagess.log" append="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </File>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx"/>
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <Logger name="searchengine.services.HtmlParser" level="warn" additivity="false">
+            <AppenderRef ref="InvalidUrls" />
+        </Logger>
+
+        <Logger name="searchengine.services.IndexingService" level="info" additivity="false">
+            <AppenderRef ref="IndexingMessages" />
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
