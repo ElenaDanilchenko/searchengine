@@ -8,6 +8,8 @@ import searchengine.Model.Status;
 import searchengine.config.Site;
 import searchengine.repositories.SiteRepository;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class SiteService {
@@ -43,5 +45,15 @@ public class SiteService {
 
     public void updateStatusTime(SiteEntity siteEntity) {
         siteRepository.save(siteEntity);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<SiteEntity> findByUrl(String url) {
+        return siteRepository.findByUrl(url);
+    }
+
+    public SiteEntity getOrCreate(Site site) {
+        return siteRepository.findByUrl(site.getUrl())
+                .orElseGet(() -> create(site));
     }
 }

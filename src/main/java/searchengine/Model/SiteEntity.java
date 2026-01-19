@@ -40,4 +40,7 @@ public class SiteEntity {
     @OneToMany(mappedBy = "siteEntity")
     private Set<PageEntity> pageEntities;
 
+    @OneToMany(mappedBy = "siteEntity")
+    private Set<LemmaEntity> lemmaEntities;
+
 }

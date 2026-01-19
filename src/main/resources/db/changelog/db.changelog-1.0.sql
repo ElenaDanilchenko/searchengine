@@ -22,3 +22,25 @@ CREATE TABLE IF NOT EXISTS page (
     FOREIGN KEY (site_id) REFERENCES site(id) ON DELETE CASCADE,
     UNIQUE (site_id, path(255))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--changeset root:3
+CREATE TABLE IF NOT EXISTS lemma (
+    id INT NOT NULL AUTO_INCREMENT,
+    site_id INT NOT NULL,
+    lemma VARCHAR(255) NOT NULL,
+    frequency INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (site_id) REFERENCES site(id) ON DELETE CASCADE,
+    UNIQUE (site_id, lemma)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--changeset root:4
+CREATE TABLE IF NOT EXISTS `index` (
+    id INT NOT NULL AUTO_INCREMENT,
+    page_id INT NOT NULL,
+    lemma_id INT NOT NULL,
+    `rank` FLOAT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (page_id) REFERENCES page(id) ON DELETE CASCADE,
+    FOREIGN KEY (lemma_id) REFERENCES lemma(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

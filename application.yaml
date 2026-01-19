@@ -16,19 +16,12 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
     enabled: true
-#    drop-first: true
 
 indexing-settings:
   sites:
-    #    - url: https://www.lenta.ru
-    #      name: Лента.ру
-#        - url: https://skillbox.ru/
-#          name: Skillbox
-    - url: https://www.playback.ru
-      name: PlayBack.Ru
     - url: https://nikoartgallery.com/
       name: Niko Art Gallery
 #    - url: https://www.svetlovka.ru/
 #      name: Светловка
-#    - url: https://sendel.ru/
-#      name: Sendel
+    - url: https://sendel.ru/
+      name: Sendel

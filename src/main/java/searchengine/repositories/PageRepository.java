@@ -9,5 +9,7 @@ import java.util.Optional;
 public interface PageRepository extends JpaRepository<PageEntity, Integer> {
 
     Optional<PageEntity> findBySiteEntityAndPath(SiteEntity siteEntity, String path);
+
+    int countBySiteEntity(SiteEntity siteEntity);
 }
 

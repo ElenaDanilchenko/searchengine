@@ -17,4 +17,11 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<IndexingResponse> handleIllegalUrl(IllegalArgumentException ex) {
+        IndexingResponse response = new IndexingResponse();
+        response.setResult(false);
+        response.setError(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
 }

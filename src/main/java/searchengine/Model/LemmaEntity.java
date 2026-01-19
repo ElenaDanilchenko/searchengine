@@ -1,17 +1,16 @@
 package searchengine.Model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Getter
 @Setter
-@EqualsAndHashCode(of = {"siteEntity", "path"})
-@NoArgsConstructor
 @Entity
-@Table(name = "page")
-public class PageEntity {
+@Table(name = "lemma")
+public class LemmaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,15 +20,12 @@ public class PageEntity {
     @JoinColumn(name = "site_id", nullable = false)
     private SiteEntity siteEntity;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String path;
+    @Column(nullable = false)
+    private String lemma;
 
     @Column(nullable = false)
-    private int code;
+    private int frequency;
 
-    @Column(columnDefinition = "MEDIUMTEXT", nullable = false)
-    private String content;
-
-    @OneToMany(mappedBy = "pageEntity")
+    @OneToMany(mappedBy = "lemmaEntity")
     private Set<IndexEntity> indexEntities;
 }

@@ -10,6 +10,10 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n"/>
         </File>
 
+        <File name="Errors" fileName="logs/errors.log" append="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </File>
+
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx"/>
         </Console>
@@ -17,12 +21,18 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="searchengine.services.HtmlParser" level="warn" additivity="false">
+        <Logger name="searchengine.services.PageLoaderService" level="warn" additivity="false">
             <AppenderRef ref="InvalidUrls" />
         </Logger>
 
         <Logger name="searchengine.services.IndexingService" level="info" additivity="false">
-            <AppenderRef ref="IndexingMessages" />
+            <AppenderRef ref="IndexingMessages">
+                <LevelRangeFilter minLevel="info" maxLevel="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </AppenderRef>
+
+            <AppenderRef ref="Errors">
+                <LevelRangeFilter minLevel="error" maxLevel="fatal" onMatch="ACCEPT" onMismatch="DENY"/>
+            </AppenderRef>
         </Logger>
 
         <Root level="info">
