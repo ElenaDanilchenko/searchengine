@@ -2,7 +2,7 @@ package searchengine.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
-import searchengine.Model.SiteEntity;
+import searchengine.model.SiteEntity;
 import searchengine.dto.indexing.PageData;
 
 import java.util.*;

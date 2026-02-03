@@ -6,8 +6,8 @@ import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import searchengine.Model.LemmaEntity;
-import searchengine.Model.SiteEntity;
+import searchengine.model.LemmaEntity;
+import searchengine.model.SiteEntity;
 import searchengine.repositories.LemmaRepository;
 
 import java.util.ArrayList;

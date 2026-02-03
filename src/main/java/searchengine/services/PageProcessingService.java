@@ -2,9 +2,9 @@ package searchengine.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import searchengine.Model.LemmaEntity;
-import searchengine.Model.PageEntity;
-import searchengine.Model.SiteEntity;
+import searchengine.model.LemmaEntity;
+import searchengine.model.PageEntity;
+import searchengine.model.SiteEntity;
 import searchengine.dto.indexing.PageData;
 
 import java.util.List;

@@ -3,8 +3,8 @@ package searchengine.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import searchengine.Model.LemmaEntity;
-import searchengine.Model.SiteEntity;
+import searchengine.model.LemmaEntity;
+import searchengine.model.SiteEntity;
 
 import java.util.List;
 

@@ -21,7 +21,7 @@ indexing-settings:
   sites:
     - url: https://nikoartgallery.com/
       name: Niko Art Gallery
-#    - url: https://www.svetlovka.ru/
-#      name: Светловка
+    - url: https://www.svetlovka.ru/
+      name: Светловка
     - url: https://sendel.ru/
       name: Sendel

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
-import searchengine.Model.SiteEntity;
+import searchengine.model.SiteEntity;
 import searchengine.dto.indexing.PageData;
 import searchengine.utils.UrlUtils;
 
